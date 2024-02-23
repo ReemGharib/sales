@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "transaction")
-public class Transaction {
+public class SaleTransaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,8 @@ public class Transaction {
     @ManyToOne
     @JoinColumn(name = "sale_id")
     private Sale sale;
-
+K
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-
 }

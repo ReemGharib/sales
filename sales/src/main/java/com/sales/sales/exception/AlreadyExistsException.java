@@ -1,2 +1,4 @@
-package com.sales.sales.exception;public class AlreadyExistsException {
+package com.sales.sales.exception;
+
+public class AlreadyExistsException extends RuntimeException {
 }

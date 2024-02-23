@@ -1,2 +1,4 @@
-package com.sales.sales.dto;public class SalesDto {
+package com.sales.sales.dto;
+
+public class SalesDto {
 }

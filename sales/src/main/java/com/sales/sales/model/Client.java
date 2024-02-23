@@ -1,10 +1,19 @@
-package com.sales.sales.entity;
+package com.sales.sales.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.util.List;
+
+/**
+ * @author Reem Gh.
+ */
+@Data
+@Builder
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Client {
 
     @Id
@@ -19,4 +28,7 @@ public class Client {
 
     @Column(name = "mobile")
     private String mobile;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Sale> sales;
 }

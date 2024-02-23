@@ -1,22 +1,39 @@
-package com.sales.sales.entity;
+package com.sales.sales.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
+/**
+ * @author Reem Gh.
+ */
+@EqualsAndHashCode
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "sale")
 public class Sale {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate creationDate;
+    private LocalDateTime creationDate;
 
-    private String seller;
+    private double total;
 
-    private String total;
+    @ManyToOne
+    @JoinColumn(name = "seller_id", referencedColumnName = "id")
+    private Seller seller;
 
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
     private Client client;
+
+    @OneToMany(mappedBy = "sale")
+    private List<SaleTransaction> transactions;
 }

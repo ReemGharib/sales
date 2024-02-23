@@ -1,2 +1,5 @@
-package com.sales.sales.repository;public class SaleTransactionRepository {
+package com.sales.sales.repository;
+
+@Repository
+public interface SaleTransactionRepository extends JpaRepository<SaleTransaction, Long> {
 }
