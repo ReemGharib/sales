@@ -19,7 +19,7 @@ public class SaleTransaction {
     @ManyToOne
     @JoinColumn(name = "sale_id")
     private Sale sale;
-K
+
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
