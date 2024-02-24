@@ -27,5 +27,6 @@
 
 UML Diagram: 
 
-![img.png](img.png)
+![image](https://github.com/ReemGharib/sales/assets/53252416/15439c3f-9e2d-49b7-bc23-0ea1c005f70f)
+
 
