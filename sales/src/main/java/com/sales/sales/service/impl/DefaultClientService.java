@@ -1,7 +1,7 @@
 package com.sales.sales.service.impl;
 
 import com.sales.sales.dto.ClientDto;
-import com.sales.sales.exception.ClientException;
+import com.sales.sales.exception.ClientNotFoundException;
 import com.sales.sales.model.Client;
 import com.sales.sales.repository.ClientRepository;
 import com.sales.sales.service.ClientService;
@@ -45,7 +45,7 @@ public class DefaultClientService implements ClientService {
     public Client updateClient(ClientDto clientDto, String id) {
 
         Client client = this.clientRepository.findById(Long.valueOf(id)).orElseThrow(
-                () -> new ClientException(format("Client not found by id : %s", id)));
+                () -> new ClientNotFoundException(format("Client not found by id : %s", id)));
 
         client.setName(clientDto.getName());
         client.setLastName(clientDto.getLastName());

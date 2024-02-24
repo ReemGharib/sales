@@ -1,7 +1,16 @@
 package com.sales.sales.model;
 
 import jakarta.persistence.*;
+import lombok.*;
 
+/**
+ * @author Reem Gh.
+ */
+@EqualsAndHashCode
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "transaction")
 public class SaleTransaction {
@@ -20,7 +29,7 @@ public class SaleTransaction {
     @JoinColumn(name = "sale_id")
     private Sale sale;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
 }

@@ -2,10 +2,8 @@ package com.sales.sales.controller;
 
 import com.sales.sales.dto.ClientDto;
 import com.sales.sales.model.Client;
-import com.sales.sales.model.Client;
 import com.sales.sales.service.ClientService;
-import com.sales.sales.service.ClientService;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,12 +14,12 @@ import java.util.List;
 /**
  * @author Reem Gharib
  */
-@RequiredArgsConstructor
 @RequestMapping("clients")
 @Controller
 public class ClientController {
 
-    private final ClientService clientService;
+    @Autowired
+    private ClientService clientService;
 
     @GetMapping
     public ResponseEntity<List<Client>> getAllClients() {

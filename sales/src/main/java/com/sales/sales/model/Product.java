@@ -2,10 +2,9 @@ package com.sales.sales.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 /**
  * @author Reem Gh.
@@ -34,8 +33,9 @@ public class Product {
     private String category;
 
     @Column(name = "product_creation_date")
+    @CreatedDate
     private LocalDateTime creationDate;
 
-    @OneToMany(mappedBy = "product")
-    private List<SaleTransaction> transactions;
+    @OneToOne
+    private SaleTransaction saleTransaction;
 }

@@ -3,8 +3,6 @@ package com.sales.sales.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 /**
  * @author Reem Gh.
  */
@@ -14,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "client")
 public class Client {
 
     @Id
@@ -29,6 +28,6 @@ public class Client {
     @Column(name = "mobile")
     private String mobile;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Sale> sales;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Sale sale;
 }

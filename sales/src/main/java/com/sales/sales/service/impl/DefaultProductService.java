@@ -1,13 +1,14 @@
 package com.sales.sales.service.impl;
 
 import com.sales.sales.dto.ProductDto;
-import com.sales.sales.exception.ClientException;
+import com.sales.sales.exception.ClientNotFoundException;
 import com.sales.sales.model.Product;
 import com.sales.sales.repository.ProductRepository;
 import com.sales.sales.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static java.lang.String.format;
@@ -37,7 +38,7 @@ public class DefaultProductService implements ProductService {
                 .name(product.getName())
                 .description(product.getDescription())
                 .category(product.getCategory())
-                //.creationDate() // TODO update ....
+                .creationDate(LocalDateTime.now())
                 .build();
 
         this.productRepository.save(productEntity);
@@ -49,7 +50,7 @@ public class DefaultProductService implements ProductService {
     public Product updateProduct(ProductDto product, String id) {
 
         Product productEntity = this.productRepository.findById(Long.valueOf(id)).orElseThrow(
-                () -> new ClientException(format("Product not found by id : %s", id)));
+                () -> new ClientNotFoundException(format("Product not found by id : %s", id)));
 
         productEntity.setName(product.getName());
         productEntity.setDescription(product.getDescription());
