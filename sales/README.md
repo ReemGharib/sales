@@ -22,7 +22,7 @@
 
 1. Fetch all sales operations: GET http://localhost:8080/sales-management-api/sales
 2. Create new sales with multiple transactions : POST http://localhost:8080/sales-management-api/sales
-3. Edit quantities and prices of the sale: PUT http://localhost:8080/sales-management-api/sales
+3. Edit quantities and prices of the sale: PUT http://localhost:8080/sales-management-api/sales/transaction/{saleTransactionId}
 
 
 UML Diagram: 
